@@ -118,9 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressFilename = document.getElementById('progress-filename');
     const progressFilesize = document.getElementById('progress-filesize');
     const sourceName = document.getElementById('source-name');
-    const circularProgress = document.querySelector('.circular-progress');
-    const percentageText = document.querySelector('.percentage');
-    const statusText = document.querySelector('.status-text');
+    const progressRingFill = document.querySelector('.progress-ring-fill');
+    const percentageText = document.getElementById('percentage-text');
+    const statusText = document.getElementById('status-text');
 
     function formatBytes(bytes, decimals = 2) {
         if (!+bytes) return '0 Bytes';
@@ -129,6 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
         const i = Math.floor(Math.log(bytes) / Math.log(k));
         return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
+    }
+
+    function setProgress(percent) {
+        const circumference = 440; // 2 * PI * 70
+        const offset = circumference - (percent / 100) * circumference;
+        progressRingFill.style.strokeDashoffset = offset;
+        percentageText.textContent = `${percent}%`;
     }
 
     function startConversionProcess(file) {
@@ -140,8 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Reset progress
         let progressValue = 0;
-        circularProgress.style.background = `conic-gradient(var(--accent-color) ${progressValue * 3.6}deg, rgba(255, 255, 255, 0.1) 0deg)`;
-        percentageText.textContent = `${progressValue}%`;
+        setProgress(progressValue);
         statusText.textContent = 'Uploading...';
         
         // Show overlay
@@ -161,15 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 speed = 100; // Slow down at the end
             }
             
-            percentageText.textContent = `${progressValue}%`;
-            circularProgress.style.background = `conic-gradient(var(--accent-color) ${progressValue * 3.6}deg, rgba(255, 255, 255, 0.1) 0deg)`;
+            setProgress(progressValue);
             
             if (progressValue == 100) {
                 clearInterval(progress);
                 statusText.textContent = 'Done!';
                 
-                // For demonstration, submit the form after a short delay
-                // In a real app, you would use AJAX/Fetch
                 setTimeout(() => {
                     progressOverlay.classList.remove('active');
                     alert(`Conversion of ${file.name} complete! \nNote: Backend is simulated.`);

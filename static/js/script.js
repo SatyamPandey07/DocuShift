@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     /* ===== Theme Toggle ===== */
-    const toggleSwitch = document.querySelector('#checkbox');
+    const toggleSwitch = document.querySelector('#theme-checkbox');
     const currentTheme = localStorage.getItem('theme');
 
     if (currentTheme) {

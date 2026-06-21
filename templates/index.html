@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuShift - File Converter Dashboard</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class='bx bxs-layer bx-tada-hover' style="color: #a855f7;"></i>
+                    <span>DocuShift</span>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                <div class="menu-category">
+                    <h3>PDF Tools</h3>
+                    <ul>
+                        <li class="active"><a href="#" data-tool="pdf-to-word"><i class='bx bxs-file-doc'></i> PDF to Word</a></li>
+                        <li><a href="#" data-tool="pdf-to-ppt"><i class='bx bxs-slideshow'></i> PDF to PowerPoint</a></li>
+                        <li><a href="#" data-tool="pdf-to-excel"><i class='bx bxs-spreadsheet'></i> PDF to Excel</a></li>
+                        <li><a href="#" data-tool="pdf-to-images"><i class='bx bxs-image-alt'></i> PDF to Images</a></li>
+                        <li><a href="#" data-tool="pdf-to-text"><i class='bx bx-text'></i> PDF to Text</a></li>
+                        <li><a href="#" data-tool="compress-pdf"><i class='bx bx-collapse-vertical'></i> PDF Compressor</a></li>
+                    </ul>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Image Tools</h3>
+                    <ul>
+                        <li><a href="#" data-tool="images-to-pdf"><i class='bx bx-images'></i> Images to PDF</a></li>
+                        <li><a href="#" data-tool="compress-image"><i class='bx bx-image-alt'></i> Image Compressor</a></li>
+                    </ul>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Developer Tools</h3>
+                    <ul>
+                        <li><a href="#" data-tool="json-to-pdf"><i class='bx bx-code-curly'></i> JSON to PDF</a></li>
+                        <li><a href="#" data-tool="xml-to-pdf"><i class='bx bx-code-block'></i> XML to PDF</a></li>
+                        <li><a href="#" data-tool="yaml-to-pdf"><i class='bx bx-align-left'></i> YAML to PDF</a></li>
+                        <li><a href="#" data-tool="text-to-pdf"><i class='bx bx-text'></i> Text to PDF</a></li>
+                        <li><a href="#" data-tool="xml-json"><i class='bx bx-transfer-alt'></i> XML ⇄ JSON</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header glass-panel">
+                <div class="header-left">
+                    <h2 id="current-tool-title">PDF to Word Converter</h2>
+                </div>
+                <div class="header-right">
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox" />
+                            <div class="slider round">
+                                <i class='bx bxs-moon'></i>
+                                <i class='bx bxs-sun'></i>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Area -->
+            <div class="dashboard-area">
+                <!-- File Upload Zone -->
+                <div class="upload-container glass-card" id="drop-zone">
+                    <form action="/convert" method="POST" enctype="multipart/form-data" id="upload-form">
+                        <input type="file" id="file-input" name="file" multiple hidden>
+                        <div class="upload-content">
+                            <i class='bx bx-cloud-upload cloud-icon'></i>
+                            <h3>Drag & drop your files here</h3>
+                            <p>or <span class="browse-btn" onclick="document.getElementById('file-input').click()">click to browse</span></p>
+                            <p class="file-info">Supported formats depend on the selected tool.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Conversion Progress Overlay -->
+    <div class="progress-overlay" id="progress-overlay">
+        <div class="progress-modal glass-card">
+            <div class="progress-header">
+                <div class="file-icon">
+                    <i class='bx bxs-file-pdf'></i>
+                </div>
+                <div class="file-details">
+                    <h4 id="progress-filename">document.pdf</h4>
+                    <p id="progress-filesize">Size: Calculating...</p>
+                </div>
+            </div>
+
+            <div class="progress-circle-container">
+                <div class="circular-progress">
+                    <div class="value-container">
+                        <span class="status-text">Converting...</span>
+                        <span class="percentage">0%</span>
+                    </div>
+                </div>
+                <p class="waiting-text">Processing your file. Please wait...</p>
+            </div>
+
+            <div class="progress-footer">
+                <div class="source-info">
+                    <span class="label">Source:</span>
+                    <span class="value" id="source-name">document.pdf</span>
+                </div>
+                <div class="target-info">
+                    <span class="label">Target Format:</span>
+                    <span class="value" id="target-format">Microsoft Word (.docx)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Decorative Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

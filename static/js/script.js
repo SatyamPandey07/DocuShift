@@ -153,32 +153,39 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show overlay
         progressOverlay.classList.add('active');
 
-        // Simulate upload and conversion process
-        let speed = 20; // ms per tick
-        
-        let progress = setInterval(() => {
+        // Simulate upload and conversion process using recursive setTimeout for dynamic speed easing
+        function tick() {
             progressValue++;
-            
-            // Change status text based on progress
-            if (progressValue === 30) {
-                statusText.textContent = 'Converting...';
-            } else if (progressValue === 90) {
-                statusText.textContent = 'Finalizing...';
-                speed = 100; // Slow down at the end
-            }
-            
             setProgress(progressValue);
             
-            if (progressValue == 100) {
-                clearInterval(progress);
+            let currentSpeed = 10; // Default fast tick rate
+            
+            // Realistic stages with different easing speeds
+            if (progressValue < 30) {
+                statusText.textContent = 'Uploading...';
+                currentSpeed = 12; // Fast upload
+            } else if (progressValue < 85) {
+                statusText.textContent = 'Converting...';
+                currentSpeed = 8;  // Super fast conversion
+            } else if (progressValue < 100) {
+                statusText.textContent = 'Finalizing...';
+                currentSpeed = 25; // Brief slowing down for realistic finalization
+            }
+            
+            if (progressValue >= 100) {
                 statusText.textContent = 'Done!';
                 
                 setTimeout(() => {
                     progressOverlay.classList.remove('active');
-                    alert(`Conversion of ${file.name} complete! \nNote: Backend is simulated.`);
+                    alert(`Conversion of ${file.name} complete!\n\nNote: This is a static demo. Real file conversions are processed locally by the Python Flask backend.`);
                     uploadForm.reset();
-                }, 1000);
+                }, 600); // Snappy closing transition
+            } else {
+                setTimeout(tick, currentSpeed);
             }
-        }, speed);
+        }
+        
+        // Start simulation immediately with a tiny delay
+        setTimeout(tick, 10);
     }
 });

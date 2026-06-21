@@ -21,7 +21,7 @@
     <div class="app-layout">
         <!-- Glassmorphism Sidebar -->
         <aside class="sidebar glass-panel">
-            <div class="sidebar-brand">
+            <div class="sidebar-brand" id="brand-logo-btn" style="cursor: pointer;">
                 <div class="brand-logo">
                     <i class='bx bxs-layer brand-icon'></i>
                 </div>
@@ -32,39 +32,39 @@
                 <div class="nav-section">
                     <h3 class="nav-title">PDF Tools</h3>
                     <ul class="nav-list">
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a href="#" class="nav-link" data-tool="pdf-to-word">
-                                <i class='bx bx-file-blank nav-icon'></i>
+                                <i class='bx bx-file-blank nav-icon' style="color: #3b82f6;"></i>
                                 <span>PDF to Word</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-tool="pdf-to-ppt">
-                                <i class='bx bx-slideshow nav-icon'></i>
+                                <i class='bx bx-slideshow nav-icon' style="color: #f97316;"></i>
                                 <span>PDF to PowerPoint</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-tool="pdf-to-excel">
-                                <i class='bx bx-table nav-icon'></i>
+                                <i class='bx bx-table nav-icon' style="color: #22c55e;"></i>
                                 <span>PDF to Excel</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-tool="pdf-to-images">
-                                <i class='bx bx-images nav-icon'></i>
+                                <i class='bx bx-images nav-icon' style="color: #10b981;"></i>
                                 <span>PDF to Images</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-tool="pdf-to-text">
-                                <i class='bx bx-text nav-icon'></i>
+                                <i class='bx bx-text nav-icon' style="color: #64748b;"></i>
                                 <span>PDF to Text</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-tool="compress-pdf">
-                                <i class='bx bx-collapse-vertical nav-icon'></i>
+                                <i class='bx bx-collapse-vertical nav-icon' style="color: #ef4444;"></i>
                                 <span>PDF Compressor</span>
                             </a>
                         </li>
@@ -76,13 +76,13 @@
                     <ul class="nav-list">
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-tool="images-to-pdf">
-                                <i class='bx bx-image-add nav-icon'></i>
+                                <i class='bx bx-image-add nav-icon' style="color: #06b6d4;"></i>
                                 <span>Images to PDF</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-tool="compress-image">
-                                <i class='bx bx-image-alt nav-icon'></i>
+                                <i class='bx bx-image-alt nav-icon' style="color: #f59e0b;"></i>
                                 <span>Image Compressor</span>
                             </a>
                         </li>
@@ -94,37 +94,40 @@
                     <ul class="nav-list">
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-tool="json-to-pdf">
-                                <i class='bx bx-code-curly nav-icon'></i>
+                                <i class='bx bx-code-curly nav-icon' style="color: #a855f7;"></i>
                                 <span>JSON to PDF</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-tool="xml-to-pdf">
-                                <i class='bx bx-code-block nav-icon'></i>
+                                <i class='bx bx-code-block nav-icon' style="color: #ec4899;"></i>
                                 <span>XML to PDF</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-tool="yaml-to-pdf">
-                                <i class='bx bx-align-left nav-icon'></i>
+                                <i class='bx bx-align-left nav-icon' style="color: #d97706;"></i>
                                 <span>YAML to PDF</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-tool="text-to-pdf">
-                                <i class='bx bx-text nav-icon'></i>
+                                <i class='bx bx-text nav-icon' style="color: #3b82f6;"></i>
                                 <span>Text to PDF</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-tool="xml-json">
-                                <i class='bx bx-transfer-alt nav-icon'></i>
+                                <i class='bx bx-transfer-alt nav-icon' style="color: #06b6d4;"></i>
                                 <span>XML ⇄ JSON</span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </nav>
+            <div class="sidebar-footer">
+                <span>Developed by Satyam Pandey</span>
+            </div>
         </aside>
 
         <!-- Main Content Area -->
@@ -133,11 +136,11 @@
             <header class="topbar">
                 <div class="topbar-left">
                     <div class="breadcrumb">
-                        <span class="crumb">DocuShift</span>
-                        <span class="separator">/</span>
-                        <span class="crumb">PDF Tools</span>
-                        <span class="separator">/</span>
-                        <span class="crumb active" id="current-tool-title">PDF to Word</span>
+                        <span class="crumb" id="breadcrumb-brand" style="cursor: pointer;">DocuShift</span>
+                        <span class="separator" id="breadcrumb-separator-1">/</span>
+                        <span class="crumb" id="breadcrumb-section" style="display: none;">PDF Tools</span>
+                        <span class="separator" id="breadcrumb-separator-2" style="display: none;">/</span>
+                        <span class="crumb active" id="current-tool-title">Welcome</span>
                     </div>
                 </div>
                 <div class="topbar-right">
@@ -156,9 +159,9 @@
             </header>
 
             <!-- Dashboard Area -->
-            <div class="dashboard-container">
+            <div class="dashboard-container hidden" id="dashboard-view">
                 <div class="dashboard-header">
-                    <h1 class="dashboard-title">File Converter Dashboard</h1>
+                    <h1 class="dashboard-title" id="tool-dashboard-title">File Converter Dashboard</h1>
                 </div>
 
                 <!-- File Upload Zone -->
@@ -176,6 +179,51 @@
                         </form>
                         <!-- Animated dashed border overlay -->
                         <div class="dashed-border"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Area (Welcome Screen) -->
+            <div class="home-container" id="home-view">
+                <div class="home-header">
+                    <h1 class="home-title">Welcome to DocuShift</h1>
+                    <p class="home-subtitle">Your private, local-first file utility suite.</p>
+                </div>
+                
+                <div class="welcome-card glass-card">
+                    <h2 class="welcome-card-title">Welcome to DocuShift</h2>
+                    <p class="welcome-card-subtitle">Your all-in-one, privacy-first local file utility suite.</p>
+                    
+                    <div class="welcome-features">
+                        <div class="feature-item">
+                            <div class="feature-icon-badge badge-shield">
+                                <i class='bx bxs-shield'></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>What is DocuShift?</h3>
+                                <p>DocuShift is a powerful suite of file conversion and compression tools designed to run entirely on your local machine. Unlike cloud-based converters, your sensitive documents never leave your computer, ensuring absolute privacy and security.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon-badge badge-rocket">
+                                <i class='bx bxs-rocket'></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>What Can It Do?</h3>
+                                <p>Whether you need to extract tables from a PDF to Excel, merge images into a single document, compress heavy files to save space, or format developer data like JSON and XML, DocuShift provides instant, high-quality processing without arbitrary file size limits.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon-badge badge-bulb">
+                                <i class='bx bxs-lightbulb'></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>How to Get Started</h3>
+                                <p>Getting started is simple. Just browse the categories in the left-hand sidebar to find the exact tool you need. From PDF utilities and image studio to developer formatting, everything is just one click away.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -61,8 +61,50 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update target format in modal
             const toolId = item.getAttribute('data-tool');
             targetFormatElement.textContent = toolFormats[toolId] || 'Converted Document';
+
+            // Extract section category (e.g. PDF Tools) dynamically from parent nav-section
+            const sectionTitle = item.closest('.nav-section').querySelector('.nav-title').textContent.trim();
+            const breadcrumbSection = document.getElementById('breadcrumb-section');
+            const breadcrumbSeparator2 = document.getElementById('breadcrumb-separator-2');
+            
+            breadcrumbSection.textContent = sectionTitle;
+            breadcrumbSection.style.display = 'inline';
+            breadcrumbSeparator2.style.display = 'inline';
+
+            // Update dashboard workspace header
+            const dashboardTitle = document.getElementById('tool-dashboard-title');
+            dashboardTitle.textContent = `${toolName} Workspace`;
+            
+            // Show dashboard workspace and hide home view
+            document.getElementById('dashboard-view').classList.remove('hidden');
+            document.getElementById('home-view').classList.add('hidden');
         });
     });
+
+    /* ===== Return to Home View ===== */
+    const showHomeView = () => {
+        // Remove active class from all sidebar nav items
+        document.querySelectorAll('.sidebar-nav .nav-item').forEach(li => {
+            li.classList.remove('active');
+        });
+        
+        // Update breadcrumbs to home state
+        const breadcrumbSection = document.getElementById('breadcrumb-section');
+        const breadcrumbSeparator2 = document.getElementById('breadcrumb-separator-2');
+        titleElement.textContent = 'Welcome';
+        if (breadcrumbSection) breadcrumbSection.style.display = 'none';
+        if (breadcrumbSeparator2) breadcrumbSeparator2.style.display = 'none';
+        
+        // Show home welcome view and hide tool dashboard workspace
+        document.getElementById('home-view').classList.remove('hidden');
+        document.getElementById('dashboard-view').classList.add('hidden');
+    };
+
+    const brandBtn = document.getElementById('brand-logo-btn');
+    const breadcrumbBrand = document.getElementById('breadcrumb-brand');
+    
+    if (brandBtn) brandBtn.addEventListener('click', showHomeView);
+    if (breadcrumbBrand) breadcrumbBrand.addEventListener('click', showHomeView);
 
     /* ===== Drag and Drop & File Upload ===== */
     const dropZone = document.getElementById('drop-zone');

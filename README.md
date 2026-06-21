@@ -2,6 +2,31 @@
 
 DocuShift is a **privacy-first, local-first** file conversion and compression suite built with **Python Flask**. All processing happens entirely on your machine - your files never leave your computer.
 
+---
+
+## 📸 Application Screenshots
+
+### Dashboard — Dark Mode
+![DocuShift Dashboard - Dark Theme](screenshots/dashboard-dark.png)
+
+The main dashboard in **dark mode** features a sleek glassmorphism UI with a collapsible sidebar navigation. All 13+ conversion tools are organized into three categories — **PDF Tools**, **Image Tools**, and **Developer Tools** — for quick access. The central drag-and-drop upload zone allows users to select files effortlessly.
+
+---
+
+### Dashboard — Light Mode
+![DocuShift Dashboard - Light Theme](screenshots/dashboard-light.png)
+
+Switch to **light mode** with a single click using the built-in theme toggle. The light theme retains the glassmorphic translucency and modern aesthetics while offering a softer, easier-on-the-eyes experience for daytime use. All tools and navigation remain fully accessible.
+
+---
+
+### File Conversion in Progress
+![DocuShift Conversion Progress](screenshots/conversion-progress.png)
+
+When a file is being converted, DocuShift displays a **real-time progress overlay** with a circular progress indicator, source file details (name and size), and the target output format. The conversion runs locally on your machine, ensuring complete privacy — no files are uploaded to any external server.
+
+---
+
 ## ✨ Features
 
 | Category | Tools |
@@ -19,8 +44,8 @@ DocuShift is a **privacy-first, local-first** file conversion and compression su
 
 ```bash
 # Clone the repository
-git clone https://github.com/SatyamPandey07/pdf-to-doc-converter.git
-cd pdf-to-doc-converter
+git clone https://github.com/SatyamPandey07/DocuShift.git
+cd DocuShift
 
 # Run the boot script (auto-creates venv and installs dependencies)
 chmod +x run.sh

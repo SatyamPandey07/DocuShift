@@ -8,14 +8,14 @@ DocuShift is a **privacy-first, local-first** file conversion and compression su
 
 ## 📸 Application Screenshots
 
-### Dashboard — Dark Mode
+### Dashboard - Dark Mode
 ![DocuShift Dashboard - Dark Theme](screenshots/dashboard-dark.png)
 
-The main dashboard in **dark mode** features a sleek glassmorphism UI with a collapsible sidebar navigation. All 13+ conversion tools are organized into three categories — **PDF Tools**, **Image Tools**, and **Developer Tools** — for quick access. The central drag-and-drop upload zone allows users to select files effortlessly.
+The main dashboard in **dark mode** features a sleek glassmorphism UI with a collapsible sidebar navigation. All 13+ conversion tools are organized into three categories - **PDF Tools**, **Image Tools**, and **Developer Tools** - for quick access. The central drag-and-drop upload zone allows users to select files effortlessly.
 
 ---
 
-### Dashboard — Light Mode
+### Dashboard - Light Mode
 ![DocuShift Dashboard - Light Theme](screenshots/dashboard-light.png)
 
 Switch to **light mode** with a single click using the built-in theme toggle. The light theme retains the glassmorphic translucency and modern aesthetics while offering a softer, easier-on-the-eyes experience for daytime use. All tools and navigation remain fully accessible.
@@ -25,7 +25,7 @@ Switch to **light mode** with a single click using the built-in theme toggle. Th
 ### File Conversion in Progress
 ![DocuShift Conversion Progress](screenshots/conversion-progress.png)
 
-When a file is being converted, DocuShift displays a **real-time progress overlay** with a circular progress indicator, source file details (name and size), and the target output format. The conversion runs locally on your machine, ensuring complete privacy — no files are uploaded to any external server.
+When a file is being converted, DocuShift displays a **real-time progress overlay** with a circular progress indicator, source file details (name and size), and the target output format. The conversion runs locally on your machine, ensuring complete privacy - no files are uploaded to any external server.
 
 ---
 

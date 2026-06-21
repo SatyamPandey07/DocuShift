@@ -1,5 +1,7 @@
 # DocuShift - Unified File Converter Suite
 
+🚀 **Live Demo:** [https://satyampandey07.github.io/DocuShift/](https://satyampandey07.github.io/DocuShift/)
+
 DocuShift is a **privacy-first, local-first** file conversion and compression suite built with **Python Flask**. All processing happens entirely on your machine - your files never leave your computer.
 
 ---

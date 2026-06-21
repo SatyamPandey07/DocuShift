@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Build Static UI
-        run: .github/scripts/build-pages.sh
+        run: python3 .github/scripts/build-pages.py
         
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4

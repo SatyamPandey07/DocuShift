@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ===== Sidebar Tool Selection ===== */
-    const menuItems = document.querySelectorAll('.sidebar-menu a');
+    const menuItems = document.querySelectorAll('.sidebar-nav .nav-link');
     const titleElement = document.getElementById('current-tool-title');
     const targetFormatElement = document.getElementById('target-format');
     
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             
             // Remove active class from all
-            document.querySelectorAll('.sidebar-menu li').forEach(li => {
+            document.querySelectorAll('.sidebar-nav .nav-item').forEach(li => {
                 li.classList.remove('active');
             });
             

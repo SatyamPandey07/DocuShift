@@ -230,4 +230,29 @@ document.addEventListener('DOMContentLoaded', () => {
         // Start simulation immediately with a tiny delay
         setTimeout(tick, 10);
     }
+
+    /* ===== Sidebar Toggle (Mobile/Tablet) ===== */
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+    if (sidebarToggle && sidebarOverlay) {
+        const toggleSidebar = () => {
+            document.body.classList.toggle('sidebar-open');
+        };
+
+        const closeSidebar = () => {
+            document.body.classList.remove('sidebar-open');
+        };
+
+        sidebarToggle.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // Close sidebar when clicking any nav links on mobile
+        menuItems.forEach(item => {
+            item.addEventListener('click', closeSidebar);
+        });
+        
+        if (brandBtn) brandBtn.addEventListener('click', closeSidebar);
+        if (breadcrumbBrand) breadcrumbBrand.addEventListener('click', closeSidebar);
+    }
 });

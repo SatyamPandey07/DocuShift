@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- Sidebar Overlay for mobile views -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
     <!-- Premium Mesh Gradient Background -->
     <div class="mesh-background">
         <div class="mesh-blob blob-1"></div>
@@ -135,6 +138,9 @@
             <!-- Top Header -->
             <header class="topbar">
                 <div class="topbar-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Toggle Sidebar">
+                        <i class='bx bx-menu'></i>
+                    </button>
                     <div class="breadcrumb">
                         <span class="crumb" id="breadcrumb-brand" style="cursor: pointer;">DocuShift</span>
                         <span class="separator" id="breadcrumb-separator-1">/</span>
